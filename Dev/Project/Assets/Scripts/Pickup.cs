@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    private int value = 5;
+    virtual protected int value() => 5;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    virtual protected void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            ScoreController.Instance.AddScore(value);
+            ScoreController.Instance.AddScore(value());
             Destroy(this.gameObject);
         }
     }

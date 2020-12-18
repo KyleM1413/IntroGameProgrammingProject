@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerRigidBody;
     float _playerHorizMove = 0;
     float playerForce = 50;
-    float playerJumpForce = 1000;
+    public float playerJumpForce = 1000;
     bool canJump = false;
     bool jumpQueued = false;
     bool sprinting = false;
@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
             canJump = false;
         }
 
+    }
+    void OnReset()
+    {
+        Kill();
     }
     public void Kill()
     {

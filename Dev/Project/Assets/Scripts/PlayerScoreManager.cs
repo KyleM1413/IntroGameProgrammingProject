@@ -18,6 +18,7 @@ public class PlayerScoreManager : MonoBehaviour
     //Return True if Score was a new Best
     public bool RecordPlayerScore(int score)
     {
+        PlayerPrefs.SetInt($"level_cleared_{levelId}", 1);
         string key = ScoreKeyForLevelID(levelId);
         int playerScore = PlayerPrefs.GetInt(key, 0);
         if(score > playerScore)

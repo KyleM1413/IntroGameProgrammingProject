@@ -27,14 +27,14 @@ public class EndGoal : MonoBehaviour
                 text.text += "\n <size=60%>New Record!</size>";
             else
                 text.text += $"\n <size=60%>Your Best: {PlayerScoreManager.Instance.RetrievePlayerBestScore().ToString("D6")}</size>";
-            StartCoroutine(DelayedNextLevel());
+            StartCoroutine(DelayedTransitionToMenu());
         }
     }
     
-    public IEnumerator DelayedNextLevel()
+    public IEnumerator DelayedTransitionToMenu()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex == 0? 1 : 0);
+        SceneManager.LoadScene(0);
     }
     void Update()
     {
